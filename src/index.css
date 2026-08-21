@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@theme {
+  --color-[#01484A]: #01484A;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #080b0c;
+    color: #e2e8f0;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  /* Custom focus outline */
+  *:focus-visible {
+    outline: 2px solid #01484A;
+    outline-offset: 2px;
+  }
+}
+
+/* Background grid pattern */
+.bg-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+}
+
+/* Custom glow effect */
+.glow-teal {
+  box-shadow: 0 0 25px -5px rgba(1, 72, 74, 0.5);
+}
+
+.glow-teal-sm {
+  box-shadow: 0 0 15px -3px rgba(1, 72, 74, 0.4);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #080b0c;
+}
+::-webkit-scrollbar-thumb {
+  background: #01484A;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #026164;
+}
+
+/* Motion reduction */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
